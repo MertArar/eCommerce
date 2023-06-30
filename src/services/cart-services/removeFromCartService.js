@@ -1,7 +1,7 @@
-import React from "react";
+import axios from "axios";
 
-const removeFromCartService = () => {
-  return <div>removeFromCartService</div>;
+export const removeFromCartService = async (productId, encodedToken) => {
+  return await axios.delete(`/api/user/cart/${productId}`, {
+    headers: { authorization: encodedToken },
+  });
 };
-
-export default removeFromCartService;

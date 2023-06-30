@@ -1,7 +1,9 @@
-import React from "react";
+import axios from "axios";
 
-const updateAddressService = () => {
-  return <div>updateAddressService</div>;
+export const updateAddressService = async (address, token) => {
+  return await axios.post(
+    `/api/user/address/${address._id}`,
+    { address },
+    { headers: { authorization: token } }
+  );
 };
-
-export default updateAddressService;

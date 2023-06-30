@@ -1,7 +1,7 @@
-import React from "react";
+import axios from "axios";
 
-const removeAddressService = () => {
-  return <div>removeAddressService</div>;
+export const removeAddressService = async (address, token) => {
+  return await axios.delete(`/api/user/address/${address._id}`, {
+    headers: { authorization: token },
+  });
 };
-
-export default removeAddressService;

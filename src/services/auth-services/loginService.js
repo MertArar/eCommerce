@@ -1,7 +1,4 @@
-import React from "react";
-
-const loginService = () => {
-  return <div>loginService</div>;
+import axios from "axios";
+export const loginService = async (email, password) => {
+  return await axios.post("/api/auth/login", { email, password });
 };
-
-export default loginService;

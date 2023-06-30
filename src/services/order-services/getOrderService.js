@@ -1,7 +1,7 @@
-import React from "react";
+import axios from "axios";
 
-const getOrderService = () => {
-  return <div>getOrderService</div>;
+export const getOrderService = async (token) => {
+  return await axios.get("api/user/orders", {
+    headers: { authorization: token },
+  });
 };
-
-export default getOrderService;

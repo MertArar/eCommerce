@@ -1,7 +1,6 @@
-import React from "react";
+import axios from "axios";
 
-const getCartService = () => {
-  return <div>getCartService</div>;
-};
-
-export default getCartService;
+export const getCartService = async (encodedToken) =>
+  await axios.get("/api/user/cart", {
+    headers: { authorization: encodedToken },
+  });

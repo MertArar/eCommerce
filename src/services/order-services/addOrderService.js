@@ -1,7 +1,9 @@
-import React from "react";
+import axios from "axios";
 
-const addOrderService = () => {
-  return <div>addOrderService</div>;
+export const addOrderService = async (order, token) => {
+  return await axios.post(
+    "api/user/orders",
+    { ...order },
+    { headers: { authorization: token } }
+  );
 };
-
-export default addOrderService;

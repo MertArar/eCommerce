@@ -1,7 +1,20 @@
-import React from "react";
+import axios from "axios";
 
-const changeQuantityCartService = () => {
-  return <div>changeQuantityCartService</div>;
+export const changeQuantityCartService = async (
+  productId,
+  encodedToken,
+  type
+) => {
+  return await axios.post(
+    `/api/user/cart/${productId}`,
+
+    {
+      action: {
+        type,
+      },
+    },
+    {
+      headers: { authorization: encodedToken },
+    }
+  );
 };
-
-export default changeQuantityCartService;

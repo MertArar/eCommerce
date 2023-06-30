@@ -1,7 +1,9 @@
-import React from "react";
+import axios from "axios";
 
-const signupService = () => {
-  return <div>signupService</div>;
-};
-
-export default signupService;
+export const signupService = async (email, password, firstName, lastName) =>
+  await axios.post("/api/auth/signup", {
+    email,
+    password,
+    firstName,
+    lastName,
+  });

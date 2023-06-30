@@ -1,7 +1,6 @@
-import React from "react";
+import axios from "axios";
 
-const getWishlistService = () => {
-  return <div>getWishlistService</div>;
-};
-
-export default getWishlistService;
+export const getWishlistService = async (encodedToken) =>
+  await axios.get("/api/user/wishlist", {
+    headers: { authorization: encodedToken },
+  });

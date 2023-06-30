@@ -1,7 +1,7 @@
-import React from "react";
+import axios from "axios";
 
-const removeFromWishlist = () => {
-  return <div>removeFromWishlist</div>;
+export const removeFromWishlistService = async (productId, encodedToken) => {
+  return await axios.delete(`/api/user/wishlist/${productId}`, {
+    headers: { authorization: encodedToken },
+  });
 };
-
-export default removeFromWishlist;

@@ -1,7 +1,5 @@
-import React from "react";
+import axios from "axios";
 
-const services = () => {
-  return <div>services</div>;
-};
+export const getAllCategories = async () => await axios.get("/api/categories");
 
-export default services;
+export const getAllProducts = async () => await axios.get("/api/products");

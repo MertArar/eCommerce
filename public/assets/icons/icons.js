@@ -1,7 +1,4 @@
-import React from "react";
+import { GrCart } from "react-icons/gr";
+import { CgHeart } from "react-icons/cg";
 
-const icons = () => {
-  return <div>icons</div>;
-};
-
-export default icons;
+export { GrCart, CgHeart };

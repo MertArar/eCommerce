@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 import React from "react";
 
-const HeroVideo = () => {
+export const HeroVideo = () => {
   const Navigate = useNavigate();
-
   return (
     <div className="hero-video-container">
       <div className="hero-video">
         <ReactPlayer
+          // url={`${process.env.PUBLIC_URL}/assets/videos/video-3.mp4`}
           url="https://res.cloudinary.com/darwtgzlk/video/upload/v1687841755/Ecommerce-app/video-3_bvxghi.mp4"
           playing
           playbackRate={1.5}
@@ -25,14 +25,14 @@ const HeroVideo = () => {
       <div className="hero-text">
         <h1>Sneak into Extraordinary</h1>
         <h2>Where Adventure Meets Style in Quirky Sneaker Bliss</h2>
-
-        <button
-          onClick={() => Navigate("product-listing")}
-          className="shop-now-btn"
-        >
-          Shop Now
-        </button>
       </div>
+
+      <button
+        onClick={() => Navigate("product-listing")}
+        className="shop-now-btn"
+      >
+        Shop Now
+      </button>
     </div>
   );
 };

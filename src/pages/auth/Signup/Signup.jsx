@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import "./Signup.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { BsEyeSlash } from "react-icons/bs";
+import { BsEye } from "react-icons/bs";
+import { useState } from "react";
+
+import React from "react";
 import { useAuth } from "../../../contexts/AuthProvider";
 import { signupService } from "../../../services/auth-services/signupService";
-import { Toast, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useData } from "../../../contexts/DataProvider";
-
-import "./Signup.css";
 
 const Signup = () => {
   const { loading } = useData();
+
   const [hidePassword, setHidePassword] = useState(true);
   const [hideConfirmPassword, setHideConfirmPassword] = useState(true);
   const [signUpLoading, setSignUpLoading] = useState(false);
@@ -20,7 +23,7 @@ const Signup = () => {
   const [signupCredential, setSignupCredential] = useState({
     email: "",
     password: "",
-    confirmPassowrd: "",
+    confirmPassword: "",
     firstName: "",
     lastName: "",
   });
@@ -29,7 +32,7 @@ const Signup = () => {
     try {
       setSignUpLoading(true);
       setError("");
-      if (signupCredential.password === signupCredential.confirmPassowrd) {
+      if (signupCredential.password === signupCredential.confirmPassword) {
         const response = await signupService(
           signupCredential.email,
           signupCredential.password,
@@ -39,7 +42,7 @@ const Signup = () => {
         if (response.status === 201) {
           setSignUpLoading(false);
           toast.success(
-            `You have successfully signed up, ${response.data.createdUser.firstName}`
+            `You've successfully signed up, ${response.data.createdUser.firstName}`
           );
           const encodedToken = response.data.encodedToken;
           const firstName = response.data.createdUser.firstName;
@@ -202,7 +205,7 @@ const Signup = () => {
             <input value="Sign Up" type="submit" />
             <button
               onClick={(e) => {
-                loginHandler(e, "mertarar.ma@gmail.com", "test123");
+                loginHandler(e, "mertarar.ma@gmail.com ", "test1234567");
               }}
             >
               Login with Test Credentials
